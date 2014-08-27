@@ -47,7 +47,7 @@ angular.module('soundcloud-widget', ['ng'])
 		},
 		transclude: true,
 		link: function(scope, element, attrs) {
-			
+
 			// allows us to $watch `ready`
 			scope.utils = soundcloudWidgetUtils;
 
@@ -86,7 +86,7 @@ angular.module('soundcloud-widget', ['ng'])
 				var iframe = document.createElement('iframe');
 				iframe.src = "https://w.soundcloud.com/player/?url=" + scope.trackUrl + "&" + serialize(scope.playerVars);
 				iframe.id = playerId;
-				element.replaceWith($compile(iframe)(scope));
+				element.empty().append($compile(iframe)(scope));
 				var player = SC.Widget(iframe);
 				player.id = playerId;
 				
